@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const { isEmail } = require("validator");
+const { isEmail, isLowercase } = require("validator");
 
 const jobApplicationSchema = new Schema(
   {
@@ -49,6 +49,7 @@ const userSchema = new Schema(
       validate: [isEmail, "Please provide a valid email"],
       unique: true,
       trim: true,
+      lowercase:true,
     },
     password: {
       type: String,
